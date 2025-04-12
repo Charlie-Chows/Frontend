@@ -1,85 +1,3 @@
-<style>
-/* 🌟 Heading Styles for Dark Theme */
-h1 {
-  color: #00ffff; /* Bright cyan */
-  font-size: 36px;
-  font-weight: bold;
-  border-bottom: 3px solid #00ffff;
-  padding-bottom: 10px;
-  margin-top: 30px;
-}
-
-h2 {
-  color: #ff7f50; /* Vibrant coral/orange */
-  font-size: 28px;
-  border-bottom: 2px dashed #ff7f50;
-  padding-bottom: 6px;
-  margin-top: 40px;
-}
-
-h3 {
-  color: #aaff00; /* Bright lime green */
-  font-size: 22px;
-  margin-top: 25px;
-  font-weight: bold;
-}
-
-/* 📌 Sub-Heading (side notes, definitions) */
-.subheading {
-  font-size: 18px;
-  color: #CBA6F7; /* Soft gray */
-  font-weight: bold;
-  margin-top: 15px;
-  margin-left: 10px;
-}
-
-/* ❗ Highlighted Questions */
-.question {
-  color: #ff4c4c; /* Red for attention */
-  font-weight: bold;
-  font-size: 18px;
-  margin-top: 10px;
-}
-
-/* 💻 Code block enhancements */
-code {
-  background-color: #2d2d2d;
-  color: #00ffea; /* Neon blue/cyan */
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 15px;
-  font-family: Consolas, monospace;
-}
-
-/* 📝 Notes and Info Boxes */
-.note {
-  background-color: #222831;
-  border-left: 6px solid #00adb5;
-  padding: 12px 18px;
-  margin: 12px 0;
-  font-size: 15px;
-  color: #eeeeee;
-  border-radius: 6px;
-}
-
-/* ✨ Extra: Inline label style (like tags or highlights) */
-.label {
-  display: inline-block;
-  background-color: #393e46;
-  color: #f8b500;
-  font-size: 13px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  margin-right: 5px;
-}
-
-.definition {
-  color: #FFD700; /* gold/yellow for highlight on dark theme */
-  font-size: 15px;
-}
-</style>
-
-
 
 # JavaScript Concepts 📘
 
@@ -120,7 +38,7 @@ let name2 = {
 
 ### `call()`
 
-<span class="definition"> Definition :</span>  Immediately invokes the function with a specified `this`context and comma-separated arguments.
+**Definition :** Immediately invokes the function with a specified `this`context and comma-separated arguments.
 
 ```js
 // Syntax: function.call(thisArg, arg1, arg2, ...)
@@ -129,7 +47,7 @@ printFullName.call(name2, "Chennai", "Tamilnadu");     // Yazith Roronoa from Ch
 ```
 ###  `apply()`
 
-<span class="definition"> Definition :</span> Just like `call()`, but takes arguments as an array instead of comma-separated.
+**Definition :** Just like `call()`, but takes arguments as an array instead of comma-separated.
 
 
 ```js
@@ -153,7 +71,7 @@ printFullName.call(name, ...args);
 
 ###  `bind()`
 
-<span class="definition"> Definition :</span> `bind()` creates a new copy of the function , it wont execute immediatly that we can invoke it later how is this .
+**Definition :** `bind()` creates a new copy of the function , it wont execute immediatly that we can invoke it later how is this .
 
 
 ```js
@@ -188,7 +106,7 @@ console.log(printMyName);
     // - if we run this in node we will get global object as output
    ```
 
-<span class="subheading"> use strict :</span>
+### use strict 
 ```js
 
 "use strict"
@@ -220,16 +138,16 @@ window.a();  // window object
 ```
 - this keyword value vary based on how we are calling a function 
 
-<span class="question">why it is log window object even in strict mode ? </span>
+**why it is log window object even in strict mode ?**
 
 - now there is no explicit owner to a function while calling it take global scope as reference in non - strict mode
 - but in strict mode it wont connected to global scope but when call `window.a()` now it take global scope as reference that's why it log as window object
 
-<span class="question">What is difference b/w method & function ?</span>
+**What is difference b/w method & function ?**
 
 - If we make a function as a part of an object is called method
 
-<span class="subheading">this key word inside object</sapn>
+**this key word inside object**
 ```js
 // Call 
 
@@ -272,7 +190,7 @@ student1.printname.call(student2);  // Kumar
 
 ```
 
-<span class="subheading">this inside arrow functions</span>
+**this inside arrow functions**
 
 ```js
 const obj = {
@@ -284,15 +202,13 @@ const obj = {
 obj.x();
 
 ```
-<div class="note">
-  Arrow functions don't have their own <code>this</code>. They inherit from the lexical scope.
-</div>
+  - Arrow functions don't have their own <code>this</code>. They inherit from the lexical scope.
 
-<span class="question"> Why it is log as window object ?</span> 
+**Why it is log as window object ?** 
 
 - The key reason is that **arrow functions do not have their own `this`**. Instead, they inherit `this` from their **enclosing lexical context** (the surrounding function or scope where they are defined).
 
-<span class="question">What if they are in nested arrow function ?</span>
+**What if they are in nested arrow function ?**
 ```js
 const obj = {
     a : 11,
@@ -311,7 +227,7 @@ obj.x();
 - `x` is also arrow it doesn’t have it’s own `this`
 - then `x` enclosing lexical context is `global scope` that’s why it log as window object
 
-<span class="question">What if they are in nested  function ?</span>
+**What if they are in nested  function ?**
 ```js
 const obj1 = {
     a : 11,
@@ -328,7 +244,7 @@ obj1.x();
 
 - Now arrow function surrounded function is `x` ( normal function ) so `x` refers to `obj1` , arrow functions logs `obj1` 
 
-<span class="question">What if function are in nested arrow  function ?</span>
+**What if function are in nested arrow  function ?**
 ```js
 
 const obj = {
@@ -345,11 +261,11 @@ obj.x(); // Logs: window (or undefined in strict mode)
 
 ```
 
-<span class="question ">why `y` ( normal function ) doesn’t take as obj reference ? </span > 
+**why `y` ( normal function ) doesn’t take as obj reference ?**
 
 - `y` called as a normal function not with a explicit owner so it won’t take `obj` as reference.
 
-<span class="subheading ">this keyword in DOM </span>
+**this keyword in DOM**
 ```js
 <!DOCTYPE html>
 <html>
