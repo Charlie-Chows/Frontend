@@ -24,6 +24,10 @@ Array.prototype.myForEach = function ( cb, thisArgs ) {
     if(!Array.isArray(this)) {
         throw new TypeError(this + " It is not Array");
     }
+
+    if(typeof cb !== "function") {
+        throw new TypeError("callback is not a function");
+    }
     
     if ( this.length === 0 ) {
         throw new TypeError("Empty array");
