@@ -31,3 +31,17 @@ let arr = [1,2,3,4,,6,7,8,9,10];
 
 let res = arr.myReduce((acc, cur) =>{ return acc + cur },0);
 console.log(res); // 50
+
+
+/* 
+
+Implement polyfill for Array.prototype.reduce with sparse array handling and initial value support
+
+- Added custom implementation for reduce method.
+- Checks for valid array and callback function.
+- Handles sparse arrays by checking if the index is present.
+- Throws errors for empty arrays without an initial value.
+- Supports initial value as an optional argument.
+
+
+*/
