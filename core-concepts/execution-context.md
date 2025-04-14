@@ -524,3 +524,82 @@ undefined
     - Code Phase – Code is executed line by line.
 - After the function finishes execution, its execution context is popped off the call stack and removed.
 - Finally, once the entire program is executed, the global execution context is also removed from the call stack.
+
+**Example**
+
+```js
+console.log(n);         // undefined 
+console.log(square2);   // undefined  
+console.log(square4);   // undefined  
+
+var n = 2;
+
+function square(num) {
+    var ans = num * num;
+    return ans;
+}
+
+var square2 = square(n);
+var square4 = square(4);
+
+console.log(n);         // 2
+console.log(square2);   // 4
+console.log(square4);   // 16
+
+```
+
+**Visual Representation**
+![Execution Context Flow](../assets/EC.jpg)
+![Call Stack](../assets/CallStack.png)
+
+**Final & Clear cut explination how above code executing**
+
+*What Happens in Memory Phase*
+- n → allocated in memory, initialized to `undefined`
+
+- square → function is hoisted with its entire body
+
+- square2 → allocated as `undefined`
+
+- square4 → allocated as `undefined`
+<br />
+<br />
+
+*So, the memory looks like:*
+```js
+n        → undefined
+square   → [Function: square]
+square2  → undefined
+square4  → undefined
+```
+<br />
+<br />
+
+
+*▶️ Code Phase (Execution Phase)*
+
+Now JavaScript starts executing the code line by line:
+
+- console.log(n); → logs undefined
+
+- console.log(square2); → logs undefined
+
+- console.log(square4); → logs undefined
+
+These values are from the Memory Phase; nothing is assigned yet.
+
+*Step-by-Step Execution*
+- var n = 2;
+- Now n is assigned the value 2.
+- var square2 = square(n);
+- JS invokes the square function and creates a new Execution Context
+- num = 2
+- ans = 4
+- returns 4 → square2 = 4 ( now square2 EC will be removed from GEC )
+- var square4 = square(4);
+- Another Execution Context is created inside GEC
+- num = 4
+- ans = 16
+- returns 16 → square4 = 16 ( now square4 EC will be removed from GEC )
+- Now whole program is finished
+- GEC will be removed from callsatck.
