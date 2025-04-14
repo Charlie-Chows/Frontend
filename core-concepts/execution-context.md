@@ -516,3 +516,11 @@ undefined
 undefined
 ```
 
+### How Functions work inside Execution Context
+- Whenever JavaScript encounters a function call, it creates a new execution context within the code phase of the current context.
+- Each function execution context has its own memory phase and code phase, just like the global execution context.
+- The process starts again for the function:
+    - Memory Phase – Variables and functions inside the function are hoisted.
+    - Code Phase – Code is executed line by line.
+- After the function finishes execution, its execution context is popped off the call stack and removed.
+- Finally, once the entire program is executed, the global execution context is also removed from the call stack.
